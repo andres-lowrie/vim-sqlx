@@ -15,4 +15,5 @@ https://github.com/pangloss/vim-javascript
 
 The goal is to (where appropriate) mash those 2 together.
 
-If you have any problems reach out via github at <@TODO add repo link here>
+If you have any problems create an issue at
+https://github.com/andres-lowrie/vim-sqlx
