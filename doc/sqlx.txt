@@ -1,0 +1,18 @@
+*sqlx.txt* SQLX Syntax
+
+==============================================================================
+Introduction                                    *sqlx* *sqlx-syntax* *ft-sqlx*
+
+Extends the sql syntax to allow for sqlx configuration blocks as well as sqlx
+template interpolation more info over here:
+
+https://github.com/pangloss/vim-javascript
+
+This is based off of:
+
+https://github.com/vim/vim/blob/master/runtime/syntax/sqloracle.vim
+https://github.com/pangloss/vim-javascript
+
+The goal is to (where appropriate) mash those 2 together.
+
+If you have any problems reach out via github at <@TODO add repo link here>
