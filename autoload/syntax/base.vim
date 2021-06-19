@@ -32,12 +32,21 @@ fun! syntax#base#SqlxBaseSyntax()
   syn keyword sqlxKeyword indicator initial inner inout insensitive interval
   syn keyword sqlxKeyword into join lag language large lead leading left local
   syn keyword sqlxKeyword materialized measures member merge method modifies
-  syn keyword sqlxKeyword module
+  syn keyword sqlxKeyword module month multiset natrual new no none not null
+  syn keyword sqlxKeyword nullif of offset old on only order over overlaps
+  syn keyword sqlxKeyword overlay parameter partition period precision
+  syn keyword sqlxKeyword primary procedure ptf rank reads recursive ref
+  syn keyword sqlxKeyword references relase result return returns right
+  syn keyword sqlxKeyword rollup row rows running scope scroll show start table
+  syn keyword sqlxKeyword then to trigger unique unnest using user values view
+  syn keyword sqlxKeyword when whenever where window with
 
 
   " Types
   syn keyword sqlxType bigint binary bit boolean char character clob date
-  syn keyword sqlxType decfloat decimal double float int integer json
+  syn keyword sqlxType decfloat decimal double float int integer json national
+  syn keyword sqlxType nchar nullable numeric real smallint timestamp unique
+  syn keyword sqlxType varchar
 
 
   " Functions
@@ -51,12 +60,28 @@ fun! syntax#base#SqlxBaseSyntax()
   syn keyword sqlxFunction json_table json_table_primitive json_value last_value
   syn keyword sqlxFunction least like_regex listagg ln localtime localtimestamp
   syn keyword sqlxFunction log log10 lower match matches match_number
-  syn keyword sqlxFunction match_recognize max min mod
+  syn keyword sqlxFunction match_recognize max min mod normalize normalized
+  syn keyword sqlxFunction nth_value ntile occurrences_regex octet_length one
+  syn keyword sqlxFunction open percent percentile_cont percentile_desc
+  syn keyword sqlxFunction percent_rank portion position position_regex power
+  syn keyword sqlxFunction precedes range regr_avgx regr_avgy regr_count
+  syn keyword sqlxFunction regr_intercept regr_r2 regr_slope regr_sxx regr_sxy
+  syn keyword sqlxFunction regr_syy row_count row_number search seek session_user
+  syn keyword sqlxFunction sin sinh sqrt stddev_pop stddev_samp substring
+  syn keyword sqlxFunction substring_regex sum tan timezone_hour timezone_minute
+  syn keyword sqlxFunction translate translate_regex treat trim trim_array
+  syn keyword sqlxFunction var_pop var_samp xmlagg xmlattributes xmlcast
+  syn keyword sqlxFunction xmlbinary xmlcomment xmlconcat xmldocument xmlelement
+  syn keyword sqlxFunction xmlexists xmlforest xmliterate xmlnamespaces
+  syn keyword sqlxFunction xmlexists xmlforest xmliterate xmlnamespaces
+  syn keyword sqlxFunction xmlparse xmlpi xmlquery xmlserialize xmltable xmltext
+  syn keyword sqlxFunction xmlvalidate
  
 
   " Statements
-  syn keyword sqlxStatement alter create delete drop insert
-
+  syn keyword sqlxStatement alter create delete drop insert outer revoke rename
+  syn keyword sqlxStatement rollback savepoint select set truncate update
+ 
 
   " Operators
   syn keyword sqlxOperator all and any between distinct escape exists in
