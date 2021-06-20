@@ -2,7 +2,8 @@
 " Language: SQLX
 " Maintainer: Andres Lowrie
 " Repository: https://github.com/andres-lowrie/vim-sqlx
-" License: MIT
+" License: VIM
+" Credits: https://github.com/vim/vim/blob/master/runtime/syntax/sqloracle.vim
 
 
 " Need a way to know when we're in the process of setting up the syntax as
@@ -18,6 +19,20 @@ endif
 syn case ignore
 
 
+" todo
+syn keyword sqlxTodo TODO FIXME XXX DEBUG NOTE contained
+
+
+" Strings
+syn match  sqlxSqlSpecial contained "\v\\%(x\x\x|u%(\x{4}|\{\x{4,5}})|c\u|.)"
+syn region sqlxSqlString  start=+\z(["']\)+  skip=+\\\%(\z1\|$\)+  end=+\z1+ end=+$+ contains=sqlxSqlSpecial extend
+
+
+" Comments
+syn region sqlxSqlComment start="/\*" end="\*/"  contains=sqlxTodo,@Spell fold
+syn match  sqlxSqlComment "--.*$"                contains=sqlxTodo,@Spell
+syn match  sqlxSqlComment "#.*$"                 contains=sqlxTodo,@Spell
+syn sync   ccomment sqlxSqlComment
 
 
 " SQL Dialects
@@ -33,12 +48,15 @@ syn case ignore
 " sqlxSqlType
 "
 " Basically with "Sql" following the prefix "sqlx"
+"
+"
+" Picking a dialect happens using the following precedence:
+"   - Reads the modeline and looks for the variables @TODO
+"   - User sets the dialect via the variable @TODO 
+"
+" 
 runtime syntax/sql/sqlx_base.vim
 
-
-" Strings
-syn match  sqlxSqlSpecial contained "\v\\%(x\x\x|u%(\x{4}|\{\x{4,5}})|c\u|.)"
-syn region sqlxSqlString  start=+\z(["']\)+  skip=+\\\%(\z1\|$\)+  end=+\z1+ end=+$+ contains=sqlxSqlSpecial extend
 
 
 " Associate all SQL dialect syntax to highlight
@@ -50,6 +68,8 @@ hi def link sqlxSqlOperator  Operator
 hi def link sqlxSqlStatement Statement
 hi def link sqlxSqlType      Type
 hi def link sqlxSqlString    String
+hi def link sqlxSqlComment   Comment
+hi def link sqlxTodo         Todo
 
 
 

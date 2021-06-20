@@ -106,23 +106,22 @@ syn region sqlxJsDestructuringPropertyComputed  contained matchgroup=sqlxJsDestr
 
 " Comments
 " ---------------------
-syn keyword sqlxJsCommentTodo    contained TODO FIXME XXX TBD NOTE
-syn region  sqlxJsComment        start=+//+ end=/$/ contains=sqlxJsCommentTodo,@Spell extend keepend
-syn region  sqlxJsComment        start=+/\*+  end=+\*/+ contains=sqlxJsCommentTodo,@Spell fold extend keepend
+syn region  sqlxJsComment        start=+//+ end=/$/ contains=sqlxTodo,@Spell extend keepend
+syn region  sqlxJsComment        start=+/\*+  end=+\*/+ contains=sqlxTodo,@Spell fold extend keepend
 syn region  sqlxJsEnvComment     start=/\%^#!/ end=/$/ display
 
 
 " Specialized Comments - These are special comment regexes that are used in
 " odd places that maintain the proper nextgroup functionality. It sucks we
 " can't make jsComment a skippable type of group for nextgroup
-syn region sqlxJsCommentFunction contained start=+//+ end=/$/    contains=sqlxJsCommentTodo,@Spell skipwhite skipempty nextgroup=sqlxJsFuncBlock extend keepend
-syn region sqlxJsCommentFunction contained start=+/\*+ end=+\*/+ contains=sqlxJsCommentTodo,@Spell skipwhite skipempty nextgroup=sqlxJsFuncBlock fold extend keepend
-syn region sqlxJsCommentClass    contained start=+//+ end=/$/    contains=sqlxJsCommentTodo,@Spell skipwhite skipempty nextgroup=sqlxJsClassBlock extend keepend
-syn region sqlxJsCommentClass    contained start=+/\*+ end=+\*/+ contains=sqlxJsCommentTodo,@Spell skipwhite skipempty nextgroup=sqlxJsClassBlock fold extend keepend
-syn region sqlxJsCommentIfElse   contained start=+//+ end=/$/    contains=sqlxJsCommentTodo,@Spell skipwhite skipempty nextgroup=sqlxJsIfElseBlock extend keepend
-syn region sqlxJsCommentIfElse   contained start=+/\*+ end=+\*/+ contains=sqlxJsCommentTodo,@Spell skipwhite skipempty nextgroup=sqlxJsIfElseBlock fold extend keepend
-syn region sqlxJsCommentRepeat   contained start=+//+ end=/$/    contains=sqlxJsCommentTodo,@Spell skipwhite skipempty nextgroup=sqlxJsRepeatBlock extend keepend
-syn region sqlxJsCommentRepeat   contained start=+/\*+ end=+\*/+ contains=sqlxJsCommentTodo,@Spell skipwhite skipempty nextgroup=sqlxJsRepeatBlock fold extend keepend
+syn region sqlxJsCommentFunction contained start=+//+ end=/$/    contains=sqlxTodo,@Spell skipwhite skipempty nextgroup=sqlxJsFuncBlock extend keepend
+syn region sqlxJsCommentFunction contained start=+/\*+ end=+\*/+ contains=sqlxTodo,@Spell skipwhite skipempty nextgroup=sqlxJsFuncBlock fold extend keepend
+syn region sqlxJsCommentClass    contained start=+//+ end=/$/    contains=sqlxTodo,@Spell skipwhite skipempty nextgroup=sqlxJsClassBlock extend keepend
+syn region sqlxJsCommentClass    contained start=+/\*+ end=+\*/+ contains=sqlxTodo,@Spell skipwhite skipempty nextgroup=sqlxJsClassBlock fold extend keepend
+syn region sqlxJsCommentIfElse   contained start=+//+ end=/$/    contains=sqlxTodo,@Spell skipwhite skipempty nextgroup=sqlxJsIfElseBlock extend keepend
+syn region sqlxJsCommentIfElse   contained start=+/\*+ end=+\*/+ contains=sqlxTodo,@Spell skipwhite skipempty nextgroup=sqlxJsIfElseBlock fold extend keepend
+syn region sqlxJsCommentRepeat   contained start=+//+ end=/$/    contains=sqlxTodo,@Spell skipwhite skipempty nextgroup=sqlxJsRepeatBlock extend keepend
+syn region sqlxJsCommentRepeat   contained start=+/\*+ end=+\*/+ contains=sqlxTodo,@Spell skipwhite skipempty nextgroup=sqlxJsRepeatBlock fold extend keepend
 
 
 " Decorators
@@ -235,7 +234,6 @@ hi def link sqlxJsCommentClass            sqlxJsComment
 hi def link sqlxJsCommentFunction         sqlxJsComment
 hi def link sqlxJsCommentIfElse           sqlxJsComment
 hi def link sqlxJsCommentRepeat           sqlxJsComment
-hi def link sqlxJsCommentTodo             Todo
 hi def link sqlxJsConditional             Conditional
 hi def link sqlxJsDecorator               Special
 hi def link sqlxJsDecoratorFunction       Function
