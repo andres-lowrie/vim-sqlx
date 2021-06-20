@@ -1,8 +1,17 @@
+" Vim syntax file
+" Language: SQLX
+" Maintainer: Andres Lowrie
+" Repository: https://github.com/andres-lowrie/vim-sqlx
+" License: VIM
+" Credits: https://github.com/vim/vim/blob/master/runtime/syntax/sqloracle.vim
+
+
 " The 'Basic' sql keywords.
 "
 " This list comes from
 " https://www.postgresql.org/docs/13/sql-keywords-appendix.html since I have
-" no idea how to see the ANSI standard.
+" no idea how to see the ANSI standard... chances are there are too many words
+" here
 
 syn keyword sqlxSqlSpecial false null true
 
@@ -11,7 +20,7 @@ syn keyword sqlxSqlSpecial false null true
 " ---------------------
 syn keyword sqlxSqlKeyword allocate are array as asc asensitive asymetric atomic authorization
 syn keyword sqlxSqlKeyword begin begin_frame begin_partition blob both by
-syn keyword sqlxSqlKeyword call called cardinality cascaded case cast character_length check classifier close cluster collate column commit corresponding cross current current_catalog current_default_transform_group current_path current_role current_row current_transform_group_for_type cursor cycle
+syn keyword sqlxSqlKeyword call called cardinality cascaded case cast character_length check classifier close cluster collate column commit corresponding cross current current_catalog current_default_transform_group current_path current_row current_transform_group_for_type cursor cycle
 syn keyword sqlxSqlKeyword datalink day deallocate dec declare default define deref desc describe deterministic disconnect dlnewcopy dlpreviouscopy dlurlcomplete dlcurlcompleteonly clurlcompletewrite dlurlpath dlurlpathonly dlurlpathwrite dlurlserver dynamic
 syn keyword sqlxSqlKeyword each element else empty end end-exec end_frame
 syn keyword sqlxSqlKeyword end_partition equals every except exec execute exp
@@ -53,7 +62,7 @@ syn keyword sqlxSqlType varchar varray
 " Functions
 " ---------------------
 syn keyword sqlxSqlFunction abs acos array_agg array_max_cardinality asin atan avg
-syn keyword sqlxSqlFunction ceil ceiling char_length coalesce collect convert corr cos cosh count covar_pop covar_samp cume_dist current_date current_date current_schema current_time current_timestamp current_user date
+syn keyword sqlxSqlFunction ceil ceiling char_length coalesce collect convert corr cos cosh count covar_pop covar_samp cume_dist current_date current_date current_role current_schema current_time current_timestamp current_user date
 syn keyword sqlxSqlFunction dense_rank
 syn keyword sqlxSqlFunction floor
 syn keyword sqlxSqlFunction json json_array json_arrayagg json_exists json_object json_objectagg json_query json_table json_table_primitive json_value

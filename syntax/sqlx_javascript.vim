@@ -1,3 +1,12 @@
+" Vim syntax file
+" Language: SQLX
+" Maintainer: Andres Lowrie
+" Repository: https://github.com/andres-lowrie/vim-sqlx
+" License: VIM
+" Credits: https://github.com/pangloss/vim-javascript
+"
+
+
 " Allow $ in identifiers
 if (v:version > 704 || v:version == 704 && has('patch1142')) && setting_up_sqlx
   syntax iskeyword @,48-57,_,192-255,$
@@ -9,7 +18,7 @@ endif
 " Grammar Constructs
 " ---------------------
 syn match sqlxJsNoise       /[:,;]/
-syn match sqlxJsDot         /\./ skipwhite skipempty nextgroup=sqlxJsObjectProp,sqlxJsFuncCall,sqlxTaggedTemplate
+syn match sqlxJsDot         /\./ skipwhite skipempty nextgroup=sqlxJsObjectProp,sqlxJsFuncCall,sqlxJsTaggedTemplate
 syn match sqlxJsFuncCall    /\<\K\k*\ze\s*(/
 syn match sqlxJsParensError /[(}\]]/
 
@@ -126,6 +135,7 @@ syn match sqlxJsDecoratorFunction  contained /\h[a-zA-Z0-9_.]*/ nextgroup=sqlxJs
 " Keywords
 " ---------------------
 syn keyword sqlxJsStorageClass              const let skipwhite skipempty nextgroup=sqlxJsDestructuringBlock,sqlxJsDestructuringArray,sqlxJsVariableDef
+syn keyword sqlxJsStorageClass              const let skipwhite skipempty
 syn keyword sqlxJsOperatorKeyword           delete instanceof typeof void new in of skipwhite skipempty nextgroup=@sqlxJsExpression
 syn keyword sqlxJsBoolean                   true false
 syn keyword sqlxJsNull                      null
@@ -168,7 +178,7 @@ syn region sqlxJsRepeatBlock        contained matchgroup=sqlxJsRepeatBraces     
 syn region sqlxJsDestructuringBlock contained matchgroup=sqlxJsDestructuringBraces start=/{/  end=/}/  contains=sqlxJsDestructuringProperty,sqlxJsDestructuringAssignment,sqlxJsDestructuringNoise,sqlxJsDestructuringPropertyComputed,sqlxJsSpreadExpression,sqlxJsComment extend fold
 syn region sqlxJsDestructuringArray contained matchgroup=sqlxJsDestructuringBraces start=/\[/ end=/\]/ contains=sqlxJsDestructuringPropertyValue,sqlxJsDestructuringNoise,sqlxJsDestructuringProperty,sqlxJsSpreadExpression,sqlxJsDestructuringBlock,sqlxJsDestructuringArray,sqlxJsComment extend fold
 syn region sqlxJsObject             contained matchgroup=sqlxJsObjectBraces        start=/{/  end=/}/  contains=sqlxJsObjectKey,sqlxJsObjectKeyString,sqlxJsObjectKeyComputed,sqlxJsObjectShorthandProp,sqlxJsObjectSeparator,sqlxJsObjectFuncName,sqlxJsObjectMethodType,sqlxJsGenerator,sqlxJsComment,sqlxJsObjectStringKey,sqlxJsSpreadExpression,sqlxJsDecorator,sqlxJsAsyncKeyword,sqlxJsTemplateString extend fold
-syn region sqlxJsBlock                        matchgroup=sqlxJsBraces              start=/{/  end=/}/  contains=@sqlxJsAll,sqlxJsSpreadExpression extend fold
+syn region sqlxJsBlock                        matchgroup=sqlxJsBraces              start=/{/  end=/}/  contains=@sqlxJsAll,sqlxJsSpreadExpression,sqlxJsTemplateString extend fold
 syn region sqlxJsSpreadExpression   contained matchgroup=sqlxJsSpreadOperator      start=/\.\.\./ end=/[,}\]]\@=/ contains=@sqlxJsExpression
 syn region sqlxJsRestExpression     contained matchgroup=sqlxJsRestOperator        start=/\.\.\./ end=/[,)]\@=/
 syn region sqlxJsTernaryIf                    matchgroup=sqlxJsTernaryIfOperator   start=/?:\@!/  end=/\%(:\|}\@=\)/  contains=@sqlxJsExpression extend skipwhite skipempty nextgroup=@sqlxJsExpression
@@ -195,7 +205,7 @@ syn match sqlxJsArrowFunction /()\ze\s*=>/   skipwhite skipempty nextgroup=sqlxJ
 syn match sqlxJsArrowFunction /_\ze\s*=>/    skipwhite skipempty nextgroup=sqlxJsArrowFunction
   
 syn cluster sqlxJsExpression  contains=sqlxJsBracket,sqlxJsParen,sqlxJsObject,sqlxJsTernaryIf,sqlxJsTaggedTemplate,sqlxJsTemplateString,sqlxJsString,sqlxJsRegexpString,sqlxJsNumber,sqlxJsFloat,sqlxJsOperator,sqlxJsOperatorKeyword,sqlxJsBooleanTrue,sqlxJsBooleanFalse,sqlxJsNull,sqlxJsFunction,sqlxJsArrowFunction,sqlxJsGlobalObjects,sqlxJsExceptions,sqlxJsFuncCall,sqlxJsUndefined,sqlxJsNan,sqlxJsPrototype,sqlxJsBuiltins,sqlxJsNoise,sqlxJsClassDefinition,sqlxJsArrowFunction,sqlxJsArrowFuncArgs,sqlxJsParensError,sqlxJsComment,sqlxJsArguments,sqlxJsThis,sqlxJsSuper,sqlxJsForAwait,sqlxJsAsyncKeyword,sqlxJsStatement,sqlxJsDot
-syn cluster sqlxJsAll         contains=@jsExpression,sqlxJsStorageClass,sqlxJsConditional,sqlxJsRepeat,sqlxJsReturn,sqlxJsException,sqlxJsTry,sqlxJsNoise
+syn cluster sqlxJsAll         contains=@sqlxJsExpression,sqlxJsStorageClass,sqlxJsConditional,sqlxJsRepeat,sqlxJsReturn,sqlxJsException,sqlxJsTry,sqlxJsNoise
 
 
 " Link
