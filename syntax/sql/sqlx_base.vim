@@ -32,7 +32,7 @@ syn keyword sqlxSqlKeyword join
 syn keyword sqlxSqlKeyword lag language large lead leading left local
 syn keyword sqlxSqlKeyword materialized measures member merge method modifies module month multiset
 syn keyword sqlxSqlKeyword natrual new no none not null nullif
-syn keyword sqlxSqlKeyword of offset old on only order over overlaps overlay
+syn keyword sqlxSqlKeyword of offset old on only order outer over overlaps overlay
 syn keyword sqlxSqlKeyword parameter partition period primary procedure ptf
 syn keyword sqlxSqlKeyword rank reads recursive ref references relase result return returns right
 syn keyword sqlxSqlKeyword rollup row rows running
@@ -86,7 +86,6 @@ syn keyword sqlxSqlStatement delete drop
 syn keyword sqlxSqlStatement from
 syn keyword sqlxSqlStatement grant
 syn keyword sqlxSqlStatement insert
-syn keyword sqlxSqlStatement outer
 syn keyword sqlxSqlStatement revoke rename rollback
 syn keyword sqlxSqlStatement savepoint select set
 syn keyword sqlxSqlStatement select
