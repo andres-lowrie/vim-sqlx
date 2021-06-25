@@ -51,11 +51,35 @@ syn sync   ccomment sqlxSqlComment
 "
 "
 " Picking a dialect happens using the following precedence:
-"   - Reads the modeline and looks for the variables @TODO
-"   - User sets the dialect via the variable @TODO 
+"   - Reads the first line for a dialect
 "
-" 
-runtime syntax/sql/sqlx_base.vim
+"         sqlx_dialect = 'some_supported_dialect'
+"
+"   - User sets the dialect via the variable 'g:sqlx_dialect' @TODO 
+let filename = 'base'
+
+if !exists("g:sqlx_dialect")
+  let firstline = getline(1)
+
+  if firstline =~ "sqlx_dialect"
+    let [_, dialect] = split(firstline, '=')
+    let g:sqlx_dialect = trim(dialect)
+  else
+    let g:sqlx_dialect = 'base'
+  endif
+
+endif
+
+if globpath(&runtimepath, 'syntax/sql/sqlx_'.g:sqlx_dialect.'.vim') != ''
+  let filename = g:sqlx_dialect
+else
+  " Setting the variable back to what it's defaulted to so that checks against
+  " the variable yield the expected result
+  echom "'".g:sqlx_dialect."' is not a supported dialect. Defaulting to 'base'"
+  let g:sqlx_dialect = 'base'
+endif
+
+exec 'runtime syntax/sql/sqlx_'.filename.'.vim'
 
 
 
