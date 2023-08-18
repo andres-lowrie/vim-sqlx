@@ -25,7 +25,7 @@ syn keyword sqlxTodo TODO FIXME XXX DEBUG NOTE contained
 
 " Strings
 syn match  sqlxSqlSpecial contained "\v\\%(x\x\x|u%(\x{4}|\{\x{4,5}})|c\u|.)"
-syn region sqlxSqlString  start=+\z(["']\)+  skip=+\\\%(\z1\|$\)+  end=+\z1+ end=+$+ contains=sqlxSqlSpecial extend
+syn region sqlxSqlString  start=+\z(["'`]\)+  skip=+\\\%(\z1\|$\)+  end=+\z1+ end=+$+ contains=sqlxSqlSpecial extend
 
 
 " Comments
