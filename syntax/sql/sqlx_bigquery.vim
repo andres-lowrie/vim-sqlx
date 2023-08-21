@@ -95,6 +95,7 @@ syn keyword sqlxSqlStatement qualify
 syn keyword sqlxSqlStatement truncate
 syn keyword sqlxSqlStatement update
 syn keyword sqlxSqlStatement window
+syn keyword sqlxSqlStatement limit
 
 
 " Operators
