@@ -183,7 +183,7 @@ syn region sqlxJsRestExpression     contained matchgroup=sqlxJsRestOperator     
 syn region sqlxJsTernaryIf                    matchgroup=sqlxJsTernaryIfOperator   start=/?:\@!/  end=/\%(:\|}\@=\)/  contains=@sqlxJsExpression extend skipwhite skipempty nextgroup=@sqlxJsExpression
 
 
-" These must occur here or they will be override by jsTernaryIf
+" These must occur here or they will be over written by jsTernaryIf
 syn match sqlxJsOperator /?\.\ze\_D/
 syn match sqlxJsOperator /??/ skipwhite skipempty nextgroup=@sqlxJsExpression
 
